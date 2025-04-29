@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>View Schedule</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/view_sched.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<main>
+	<!-- HEADER -->
+	<header class="main-header">
+		<figure class="logo">
+			<img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+			<img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+			<h1>BACKROOMS</h1>
+		</figure>
+		<figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+	</header>
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>SCHEDULE</h5></span>
+		<nav class="nav-buttons" style="margin-top: 10px; margin-bottom: 10px;">
+			<button onclick="viewSchedule('View Schedule')" style="background-color: #e0b0e0; color: #6a1e60; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">View Schedule</button>
+			<button onclick="viewRejected('Rejected Schedule')" style="background-color: #e0b0e0; color: #6a1e60; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">Rejected Schedule</button>
+			<button onclick="viewCanceled('Canceled Schedule')" style="background-color: #e0b0e0; color: #6a1e60; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">Canceled Schedule</button>
+			<button onclick="viewPending('View Pending Schedule')" style="background-color: #e0b0e0; color: #6a1e60; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">View Pending Schedule</button>
+		</nav>
+	</div>
+<body>
+	<!-- OVERLAY -->
+	<div id="overlay"></div>
+	
+	
+	<!-- SIDE-NAV -->
+	<div id="side-nav" class="side-nav">
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html">HOME</a></li>
+			<li><a href="View schedule.html" class="active">VIEW SCHEDULE</a></li>
+			<li><a href="Request Account.html">REQUEST SCHEDULE</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+
+	<!-- ACC-TABLE -->
+	<div id="main">
+	<div id="undermain">
+	<header class="in-page">
+		<h2 id="in-page-header">View Schedule</h2>
+	</header>
+		<div id="rejected" class="req-table overflow">
+			<table>
+				<tr>
+					<th>Request</th>
+					<th>Time</th>
+					<th>Description</th>		
+				</tr>
+				<tr>
+					<td>Rejected</td>
+					<td>10:30 AM - 12:00 AM</td>
+					<td>Class Size: 40-50 <br> Subject: ART 21</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div id="canceled" class="req-table overflow">
+			<table>
+				<tr>
+					<th>Request</th>
+					<th>Time</th>
+					<th>Description</th>		
+				</tr>
+				<tr>
+					<td>Canceled</td>
+					<td>10:30 AM - 12:00 AM</td>
+					<td>Class Size: 40-50 <br> Subject: ART 21</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div id="pending" class="req-table overflow">
+			<table>
+				<tr>
+					<th>Request</th>
+					<th>Time</th>
+					<th>Description</th>		
+				</tr>
+				<tr>
+					<td class="cancel">Cancel</td>
+					<td>10:30 AM - 12:00 AM</td>
+					<td>Class Size: 40-50 <br> Subject: ART 21</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div id="view-rooms" class="req-table overflow">
+			<table>
+				<tr>
+					<th colspan="2">Room</th>	
+				</tr>
+				<tr>
+					<td class="hover" onclick="openScheduling('Room 103')">
+						<h2>103</h2>
+						Classroom Size: 60<br>
+						Equipment: Computer, Whiteboard<br>
+						Available
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		
+		<!-- SCHEDULING -->
+		<div id="scheduling-box">
+			<div class="box-header">
+				<div id="sched-headerL">
+					<h1 id="scheduling-header" onclick="closeSchedDesc()"></h1>
+					<button id="info-btn" onclick="openSchedDesc()"><i class="material-icons label">info</i></button>
+					<button id="info-btn-close" onclick="closeSchedDesc()"><i class="material-icons label">info</i></button>
+				</div>
+				<div id="sched-headerR">
+					<div>
+						<button id="search-icon"><i class="material-icons label">search</i></button>
+						<input type="text" id="search-bar" placeholder="Search..." oninput="filterContent()">
+					</div>
+					<span id="sort-icon" class="material-icons label">sort</span>
+					<span id="close-btn" class="material-icons" onclick="closeScheduling()">close</span>
+				</div>
+			</div>
+		<div id="sched-class-desc">
+			<div id="edit-btn">
+				<label><button id="edit-icon"><i class="material-icons label">edit</i></button><h3>EDIT</h3></label>
+			</div>
+			<table id="desc-tbl">
+				<thead>
+					<tr>
+						<th colspan="2">CLASSROOM DESCRIPTION</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>CLASSROOM SIZE</th>
+						<td>40</td>
+					</tr>
+					<tr>
+						<th>EQUIPMENT</th>
+						<td>White Board</td>
+					</tr>
+					<tr>
+						<th>AVAILABILITY</th>
+						<td>Available</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="set-sched">
+			<table id="setsched-tbl">
+				<thead>
+					<tr>
+						<th id="set-sched-header" colspan="2"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>8:00AM-9:00AM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>9:00AM-10:00AM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>10:00AM-11:00AM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>11:00AM-12:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>1:00PM-2:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>2:00PM-3:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>3:00PM-4:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>4:00PM-5:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>5:00PM-6:00PM</th>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="sched-week">
+			<div class="week-boxes">
+				<div class="weekday hover" onclick="openSetScheduling('MONDAY')">
+					<div class="day"><h3>MONDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('TUESDAY')">
+					<div class="day"><h3>TUESDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('WEDNESDAY')">
+					<div class="day"><h3>WEDNESDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('THURSDAY')">
+					<div class="day"><h3>THURSDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('FRIDAY')">
+					<div class="day"><h3>FRIDAY</h3></div>
+				</div>
+			</div>
+			
+			
+	</div>
+	<div id="create-box">
+		<span id="close-btn" class="material-icons" onclick="toManageAcc()">close</span>
+		<form id="create-account">
+			<label>Name<input type="text" placeholder="Enter full name..."></label>
+			<label>Username<input type="text" placeholder="Enter username..."></label>
+			<label>Email<input type="text" placeholder="Enter email address..."></label>
+			<label>Password<input type="text" placeholder="Enter password..."></label>
+			<label>Confirm Password<input type="text" placeholder="Enter password again..."></label>
+			<label>Account Type
+				<select>
+				  <option>Client</option>
+				  <option>Admin</option>
+				</select>
+			</label>
+			<button type="submit" onclick="toManageAcc()">Create</button>
+		</form>
+		</div>
+	</div>
+</body>
+</main>
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+function openSort() {
+  document.getElementById("sort-filter-box").style.width = "250px";
+  document.getElementById("sort-filter-box").style.display="block";
+   document.getElementById("overlay").style.top = "13.1vh";
+  document.getElementById("overlay").style.display="block";
+}
+
+function closeSort() {
+  document.getElementById("sort-filter-box").style.width = "0";
+  document.getElementById("sort-filter-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+}
+
+function createAccount() {
+  document.getElementById("undermain").style.display="none";
+  document.getElementById("create-box").style.display="block";
+}
+
+function toManageAcc() {
+  document.getElementById("undermain").style.display="block";
+  document.getElementById("create-box").style.display="none";
+}
+
+function openScheduling(newText) {
+  document.getElementById("scheduling-box").style.display="block";
+  document.getElementById("overlay").style.top = "0";
+  document.getElementById("overlay").style.display="block";
+  document.getElementById("scheduling-header").innerText = newText;
+}
+
+function closeScheduling(newText) {
+  document.getElementById("scheduling-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+  document.getElementById("scheduling-header").innerText = "";
+}
+
+function viewSchedule(newText) {
+  document.getElementById("in-page-header").innerText = newText;
+	document.getElementById("rejected").style.display="none"; 
+	document.getElementById("canceled").style.display="none";  
+	document.getElementById("pending").style.display="none";  
+  document.getElementById("view-rooms").style.display="block";  
+}
+function viewRejected(newText) {
+  document.getElementById("in-page-header").innerText = newText;
+  	document.getElementById("view-rooms").style.display="none"; 
+	document.getElementById("canceled").style.display="none";  
+	document.getElementById("pending").style.display="none";
+  document.getElementById("rejected").style.display="block";  
+}
+function viewCanceled(newText) {
+  document.getElementById("in-page-header").innerText = newText;
+  	document.getElementById("rejected").style.display="none"; 
+	document.getElementById("view-rooms").style.display="none";  
+	document.getElementById("pending").style.display="none";
+  document.getElementById("canceled").style.display="block";  
+}
+function viewPending(newText) {
+  document.getElementById("in-page-header").innerText = newText;
+  	document.getElementById("rejected").style.display="none"; 
+	document.getElementById("canceled").style.display="none";  
+	document.getElementById("view-rooms").style.display="none";
+  document.getElementById("pending").style.display="block";  
+}
+
+function openSchedDesc() {
+  document.getElementById("sched-week").style.display="none";
+  document.getElementById("info-btn").style.display="none";  
+  document.getElementById("info-btn-close").style.display="block";  
+  document.getElementById("sched-class-desc").style.display="block";
+}
+
+function closeSchedDesc() {
+  document.getElementById("sched-class-desc").style.display="none";
+  document.getElementById("sched-week").style.display="block";
+  document.getElementById("info-btn").style.display="block";  
+  document.getElementById("info-btn-close").style.display="none";
+document.getElementById("set-sched").style.display="none";  
+}
+
+function openSetScheduling(newText) {
+  document.getElementById("sched-week").style.display="none";
+  document.getElementById("set-sched").style.display="block";
+  document.getElementById("set-sched-header").innerText = newText;
+  document.getElementById("info-btn").style.display="none";  
+  document.getElementById("info-btn-close").style.display="block";  
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+
+</html>

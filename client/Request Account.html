@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Backrooms Request Form</title>
+  <link rel="stylesheet" href="styles/ri.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+	<header class="main-header">
+		<figure class="logo">
+			<img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+			<img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+			<h1>BACKROOMS</h1>
+		</figure>
+		<figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+	</header>
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>SEND REQUEST</h5></span>
+	</div>
+	
+<body>
+	<!-- OVERLAY -->
+	<div id="overlay"></div>
+	
+	
+	<!-- SIDE-NAV -->
+	<div id="side-nav" class="side-nav">
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html">HOME</a></li>
+			<li><a href="View schedule.html">VIEW SCHEDULE</a></li>
+			<li><a href="Request Account.html" class="active">REQUEST SCHEDULE</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+ 
+ <div id="main">
+  <!-- Form -->
+  <div class="form-container">
+    <h1>Request Form</h1>
+
+    
+    <!-- Time -->
+    <div class="form-group">
+      <label>Time</label>
+      <div class="form-inline">
+        <span>Class start</span>
+        <input type="number" value="7" required>
+        <select>
+          <option>AM</option>
+          <option>PM</option>
+        </select>
+        <span style="margin-left: 30px;">Dismissal</span>
+        <input type="number" value="7" required>
+        <select>
+          <option>AM</option>
+          <option>PM</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Class Size -->
+    <div class="form-group">
+      <label>Class Size</label>
+      <div class="form-inline">
+        <span>From</span>
+        <input type="number" value="0" required>
+        <span>To</span>
+        <input type="number" value="60" required>
+      </div>
+    </div>
+
+    <!-- Equipment Needed -->
+    <div class="form-group" style="align-items: flex-start;">
+      <label>Equipment Needed</label>
+      <div class="equipment-box">
+        <label><input type="checkbox" required> White Board</label>
+        <label><input type="checkbox" required> Internet Connection</label>
+        <label><input type="checkbox" required> Computer</label>
+      </div>
+    </div>
+
+    <!-- Subject -->
+    <div class="form-group">
+      <label>Subject</label>
+      <input type="text" class="subject-input" placeholder="FORL 11..." required>
+    </div>
+
+    <!-- Send Button -->
+    <div class="send-btn-container">
+      <button class="send-btn">Send</button>
+    </div>
+  </div>
+</div>  
+</div>
+</body>
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+function openSort() {
+  document.getElementById("sort-filter-box").style.width = "250px";
+  document.getElementById("sort-filter-box").style.display="block";
+   document.getElementById("overlay").style.top = "13.1vh";
+  document.getElementById("overlay").style.display="block";
+}
+
+function closeSort() {
+  document.getElementById("sort-filter-box").style.width = "0";
+  document.getElementById("sort-filter-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+}
+
+function createAccount() {
+  document.getElementById("undermain").style.display="none";
+  document.getElementById("create-box").style.display="block";
+}
+
+function toManageAcc() {
+  document.getElementById("undermain").style.display="block";
+  document.getElementById("create-box").style.display="none";
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+</html>

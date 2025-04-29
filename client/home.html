@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/home.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body>
+	<!-- HEADER -->
+	<header class="main-header">
+		<figure class="logo">
+			<img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+			<img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+			<h1>BACKROOMS</h1>
+		</figure>
+		<figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+	</header>
+	
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>HOME</h5></span>
+	</div>
+	<!-- SIDE-NAV -->
+	<div id="side-nav" class="side-nav">
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html" class="active">HOME</a></li>
+			<li><a href="View schedule.html">VIEW SCHEDULE</a></li>
+			<li><a href="Request Account.html">REQUEST SCHEDULE</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+	
+<main id="main">
+  <div class="menu-container">
+    <div class="menu-item">
+      <a href="View schedule.html" target="_self">
+        <img src="logos/schedules.png" alt="View Schedule">
+        <br>VIEW SCHEDULE
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="Request Account.html" target="_self">
+        <img src="logos/requests.png" alt="Request Schedule">
+       <br> REQUEST<br>SCHEDULE
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="notif.html" target="_self">
+        <img src="logos/profileicon.png" alt="Notifications">
+       <br> NOTIFICATIONS
+      </a>
+    </div>
+  </div>
+  <div>
+
+  </div>
+</main>
+</body>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+</html>
