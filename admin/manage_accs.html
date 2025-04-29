@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>MANAGE ACCOUNTS</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/manage_accs.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<main>
+	<!-- HEADER -->
+	<header class="main-header">
+		<figure class="logo">
+			<img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+			<img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+			<h1>BACKROOMS</h1>
+		</figure>
+		<figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+	</header>
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>MANAGE ACCOUNTS</h5></span>
+		<div id="subheader-R">
+			<form id="search">
+				<button id="search-icon"><span class="material-icons label">search</span></button>
+				<input type="text" id="search-bar" placeholder="Search..." oninput="filterContent()">
+			</form>
+			<span id="sort-icon" class="material-icons label" onclick="openSort()">sort</span>
+		</div>
+	</div>
+<body>
+	<!-- OVERLAY -->
+	<div id="overlay"></div>
+	
+	
+	<!-- SIDE-NAV -->
+	<div id="side-nav" >
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html">HOME</a></li>
+			<li>
+				<a href="schedule.html" class="dropdown-btn">SCHEDULE</a>
+				<div class="dropdown-container" id="dropdown-container">
+					<a class="tabs" href="#1st-floor">First Floor</a>
+					<a class="tabs" href="#2nd-floor">Second Floor</a>
+					<a class="tabs" href="#3rd-floor">Third Floor</a>
+				</div>
+			</li>
+			<li>
+				<a href="Manage Request.html" class="dropdown-btn">MANAGE REQUESTS</a>
+				<div class="dropdown-container" id="dropdown-container">
+					<a class="tabs" href="#all">All</a>
+					<a class="tabs" href="#pending">Pending</a>
+					<a class="tabs" href="#rejected">Rejected</a>
+					<a class="tabs" href="#approved">Approved</a>
+				</div>
+			</li>
+		 <li><a href="manage_accs.html" class="active">MANAGE ACCOUNTS</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+
+
+	<!-- SORT&FILTER -->
+	<div id="sort-filter-box">
+		<form action="">
+			<div id="sort-header">
+				<span id="sort-icon" class="material-icons label">sort</span>
+				<h2>Sort & Filter</h2>
+				<span id="close-btn" class="material-icons" onclick="closeSort()">close</span>
+			</div>
+
+			<div id="sort-filter-menu">
+				<h3>Sort</h3>
+				<form action="">
+					<label><input type="checkbox">A - Z</label>
+					<label><input type="checkbox">Z - A</label>
+					<label><input type="checkbox">Account Type</label>
+				</form>
+			</div>
+			
+			<div id="sort-filter-menu">
+				<h3>Filter</h3>
+				<h4>Availability</h4>
+				<form>
+					<label><input type="checkbox">Disabled Account</label>
+					<label><input type="checkbox">Admin</label>
+					<label><input type="checkbox">Client</label>
+				</form>
+			</div>
+			
+			<button type="submit">Apply</button>
+		</form>
+	</div>
+
+	<!-- ACC-TABLE -->
+	<div id="main">
+	<div id="undermain">
+	<header class="in-page">
+		<h2>Accounts</h2>
+		<button id="sub-header-create-acc" type="submit" onclick="createAccount()">Create Account</button>
+	</header>
+	<div id="acc-table" class="overflow">
+		<table>
+			<tr>
+				<th>CONTENT</th>
+				<th>USERNAME</th>
+				<th>NAME</th>
+				<th>EMAIL</th>	
+				<th>PASSWORD</th>
+				<th>ACCOUNT TYPE</th>		
+			</tr>
+			<tr>
+				<td class="underline">[Edit] [Disable]</td>
+				<td>Admin1</td>
+				<td>Admin1</td>
+				<td>Admin1@admin.com</td>
+				<td>Admin123</td>
+				<td>ADMIN</td>
+			</tr>
+			<tr>
+				<td class="underline">[Edit] [Disable]</td>
+				<td>Admin2</td>
+				<td>Admin2</td>
+				<td>Admin2@admin.com</td>
+				<td>Admin123</td>
+				<td>ADMIN</td>
+			</tr>
+			<tr>
+				<td class="underline">[Edit] [Disable]</td>
+				<td>Admin3</td>
+				<td>Admin3</td>
+				<td>Admin3@admin.com</td>
+				<td>Admin123</td>
+				<td>ADMIN</td>
+			</tr>
+			<tr>
+				<td class="underline">[Edit] [Disable]</td>
+				<td>Client1</td>
+				<td>Client1</td>
+				<td>Client1@admin.com</td>
+				<td>Client123</td>
+				<td>CLIENT</td>
+			</tr>
+			<tr>
+				<td class="underline">[Edit] [Disable]</td>
+				<td>Client2</td>
+				<td>Client2</td>
+				<td>Client2@admin.com</td>
+				<td>Client123</td>
+				<td>CLIENT</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	<div id="create-box">
+		<span id="close-btn" class="material-icons" onclick="toManageAcc()">close</span>
+		<form id="create-account">
+			<label>Name<input type="text" placeholder="Enter full name..."></label>
+			<label>Username<input type="text" placeholder="Enter username..."></label>
+			<label>Email<input type="text" placeholder="Enter email address..."></label>
+			<label>Password<input type="text" placeholder="Enter password..."></label>
+			<label>Confirm Password<input type="text" placeholder="Enter password again..."></label>
+			<label>Account Type
+				<select>
+				  <option>Client</option>
+				  <option>Admin</option>
+				</select>
+			</label>
+			<button type="submit" onclick="toManageAcc()">Create</button>
+		</form>
+	</div>
+</body>
+</main>
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+function openSort() {
+  document.getElementById("sort-filter-box").style.width = "250px";
+  document.getElementById("sort-filter-box").style.display="block";
+   document.getElementById("overlay").style.top = "13.1vh";
+  document.getElementById("overlay").style.display="block";
+}
+
+function closeSort() {
+  document.getElementById("sort-filter-box").style.width = "0";
+  document.getElementById("sort-filter-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+}
+
+function createAccount() {
+  document.getElementById("undermain").style.display="none";
+  document.getElementById("create-box").style.display="block";
+}
+
+function toManageAcc() {
+  document.getElementById("undermain").style.display="block";
+  document.getElementById("create-box").style.display="none";
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+
+</html>

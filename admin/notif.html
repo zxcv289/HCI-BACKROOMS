@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTIFICATIONS</title>
+    <link rel="stylesheet" href="styles/notif.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <figure class="logo">
+            <img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+            <img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+            <h1>BACKROOMS</h1>
+        </figure>
+        <figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+    </header>
+
+    <!-- SUBHEADER -->
+    <div class="subheader">
+        <span class="material-icons label" onclick="openNav()">menu <h5>NOTIFICATIONS</h5></span>
+        <div id="subheader-R">
+            <form id="search">
+                <button id="search-icon"><span class="material-icons label">search</span></button>
+                <input type="text" id="search-bar" placeholder="Search..." oninput="filterContent()">
+            </form>
+            <span id="sort-icon" class="material-icons label" onclick="openSort()">sort</span>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay"></div>
+
+    <!-- SIDE-NAV -->
+    <div id="side-nav" >
+        <div id="top-border"></div>
+        <span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="schedule.html">SCHEDULE</a></li>
+            <li><a href="Manage Request.html">MANAGE REQUESTS</a></li>
+            <li><a href="manage_accs.html">MANAGE ACCOUNTS</a></li>
+            <li><a href="notif.html" class="active">NOTIFICATIONS</a></li>
+        </ul>
+    </div>
+	
+	<!-- SORT&FILTER -->
+	<div id="sort-filter-box">
+		<form action="">
+			<div id="sort-header">
+				<span id="sort-icon" class="material-icons label">sort</span>
+				<h2>Sort & Filter</h2>
+				<span id="close-btn" class="material-icons" onclick="closeSort()">close</span>
+			</div>
+
+			<div id="sort-filter-menu">
+				<h3>Sort</h3>
+				<form action="">
+					<label><input type="checkbox">A - Z</label>
+					<label><input type="checkbox">Z - A</label>
+					<label><input type="checkbox">Time</label>
+				</form>
+			</div>
+			
+			<div id="sort-filter-menu">
+				<h3>Filter</h3>
+				<h4>Availability</h4>
+				<form>
+					<label><input type="checkbox">Approved</label>
+					<label><input type="checkbox">Rejected</label>
+				</form>
+			</div>
+			
+			<button type="submit">Apply</button>
+		</form>
+	</div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main">
+        <header class="in-page">
+            <h2>Notifications</h2>
+        </header>
+        <div id="acc-table" class="overflow">
+            <table>
+                <tr>
+                    <th>STATUS</th>
+                    <th>NAME</th>
+                    <th>TIME</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+                <tr>
+                    <td>Pending</td>
+                    <td>Teacher G</td>
+                    <td>1:00PM - 2:30PM</td>
+                    <td>Request pending for Subject UTS, Class Size 30-40.</td>
+                </tr>
+                <tr>
+                    <td class="status-rejected">❌ Rejected</td>
+                    <td>Teacher F</td>
+                    <td>3:00PM - 5:00PM</td>
+                    <td>Request rejected for Subject FORL 11.</td>
+                </tr>
+                <tr>
+                    <td class="status-approved">✔️ Approved</td>
+                    <td>Teacher A</td>
+                    <td>8:00AM - 9:00AM</td>
+                    <td>Approved: Internet Connection needed for Subject FORL 11.</td>
+                </tr>
+                <tr>
+                    <td class="status-approved">✔️ Approved</td>
+                    <td>Teacher B</td>
+                    <td>8:00AM - 9:30AM</td>
+                    <td>Request approved for Subject ENG21, Class Size 30-40.</td>
+                </tr>
+                <tr>
+                    <td class="status-approved">✔️ Approved</td>
+                    <td>Teacher C</td>
+                    <td>8:00AM - 9:00AM</td>
+                    <td>Approved: White Board needed for Subject FORL 11.</td>
+                </tr>
+                <tr>
+                    <td class="status-approved">✔️ Approved</td>
+                    <td>Teacher D</td>
+                    <td>9:00AM - 10:00AM</td>
+                    <td>Request approved for Subject STAT 21.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        function openNav() {
+            document.getElementById("side-nav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "260px";
+            document.getElementById("side-nav").style.display = "block";
+        }
+
+        function closeNav() {
+            document.getElementById("side-nav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("side-nav").style.display = "none";
+        }
+
+        function openSort() {
+            document.getElementById("sort-filter-box").style.width = "250px";
+            document.getElementById("sort-filter-box").style.display = "block";
+            document.getElementById("overlay").style.top = "13.1vh";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closeSort() {
+            document.getElementById("sort-filter-box").style.width = "0";
+            document.getElementById("sort-filter-box").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

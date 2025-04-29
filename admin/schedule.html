@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SCHEDULING PAGE</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/schedule.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<main>
+	<!-- HEADER -->
+	<header class="main-header">
+		<figure class="logo">
+			<img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+			<img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+			<h1>BACKROOMS</h1>
+		</figure>
+		<figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+	</header>
+	
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>SCHEDULE</h5></span>
+		<div id="subheader-R">
+			<form id="search">
+				<button id="search-icon"><span class="material-icons label">search</span></button>
+				<input type="text" id="search-bar" placeholder="Search..." oninput="filterContent()">
+			</form>
+			<span id="sort-icon" class="material-icons label" onclick="openSort()">sort</span>
+		</div>
+	</div>
+	
+	
+<body>
+
+
+	<!-- OVERLAY -->
+	<div id="overlay"></div>
+	
+	
+	<!-- SIDE-NAV -->
+	<div id="side-nav" >
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html">HOME</a></li>
+			<li>
+				<a href="schedule.html" class="dropdown-btn active">SCHEDULE</a>
+				<div class="on-page">
+					<a class="tabs" href="#1st-floor">First Floor</a>
+					<a class="tabs" href="#2nd-floor">Second Floor</a>
+					<a class="tabs" href="#3rd-floor">Third Floor</a>
+				</div>
+			</li>
+			<li>
+				<a href="Manage Request.html" class="dropdown-btn">MANAGE REQUESTS</a>
+				<div class="dropdown-container">
+					<a class="tabs" href="#1st-floor">All</a>
+					<a class="tabs" href="#2nd-floor">Pending</a>
+					<a class="tabs" href="#3rd-floor">Rejected</a>
+					<a class="tabs" href="#3rd-floor">Approved</a>
+				</div>
+			</li>
+		 <li><a href="manage_accs.html">MANAGE ACCOUNTS</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+
+
+	<!-- SORT&FILTER -->
+	<div id="sort-filter-box">
+		<form action="">
+			<div id="sort-header">
+				<span id="sort-icon" class="material-icons label">sort</span>
+				<h2>Sort & Filter</h2>
+				<span id="close-btn" class="material-icons" onclick="closeSort()">close</span>
+			</div>
+
+			<div id="sort-filter-menu">
+				<h3>Sort</h3>
+				<form action="">
+					<label><input type="checkbox">A - Z</label>
+					<label><input type="checkbox">Z - A</label>
+					<label><input type="checkbox">Availability</label>
+				</form>
+			</div>
+			
+			<div id="sort-filter-menu">
+				<h3>Filter</h3>
+				<h4>Equipment</h4>
+				<form>
+					<label><input type="checkbox">Whiteboard</label>
+					<label><input type="checkbox">Internet Connection</label>
+					<label><input type="checkbox">Computer</label>
+				</form>
+			</div>
+			
+			
+			<div id="sort-filter-menu" >
+				<h4>Class Size</h4>
+				<form id="class-size">
+					<label>From <input type="text" placeholder="0"></label>
+					<label>to <input type="text" placeholder="60"></label>
+				</form>
+			</div>
+			
+			<button type="submit">Apply</button>
+		</form>
+	</div>
+	
+	
+	<!-- SCHEDULING -->
+	<div id="scheduling-box">
+		<div class="box-header">
+			<div id="sched-headerL">
+				<h1 id="scheduling-header" onclick="closeSchedDesc()"></h1>
+				<button id="info-btn" onclick="openSchedDesc()"><i class="material-icons label">info</i></button>
+				<button id="info-btn-close" onclick="closeSchedDesc()"><i class="material-icons label">info</i></button>
+			</div>
+			<div id="sched-headerR">
+				<div>
+					<button id="search-icon"><i class="material-icons label">search</i></button>
+					<input type="text" id="search-bar" placeholder="Search..." oninput="filterContent()">
+				</div>
+				<span id="sort-icon" class="material-icons label">sort</span>
+				<span id="close-btn" class="material-icons" onclick="closeScheduling()">close</span>
+			</div>
+		</div>
+		
+		<div id="sched-class-desc">
+			<div id="edit-btn">
+				<label><button id="edit-icon"><i class="material-icons label">edit</i></button><h3>EDIT</h3></label>
+			</div>
+			<table id="desc-tbl">
+				<thead>
+					<tr>
+						<th colspan="2">CLASSROOM DESCRIPTION</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>CLASSROOM SIZE</th>
+						<td>40</td>
+					</tr>
+					<tr>
+						<th>EQUIPMENT</th>
+						<td>White Board</td>
+					</tr>
+					<tr>
+						<th>AVAILABILITY</th>
+						<td>Available</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div id="set-sched">
+			<table id="setsched-tbl">
+				<thead>
+					<tr>
+						<th id="set-sched-header" colspan="2"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>8:00AM-9:00AM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>9:00AM-10:00AM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>10:00AM-11:00AM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>11:00AM-12:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>1:00PM-2:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>2:00PM-3:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>3:00PM-4:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>4:00PM-5:00PM</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>5:00PM-6:00PM</th>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div id="sched-week">
+			<div class="week-boxes">
+				<div class="weekday hover" onclick="openSetScheduling('MONDAY')">
+					<div class="day"><h3>MONDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('TUESDAY')">
+					<div class="day"><h3>TUESDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('WEDNESDAY')">
+					<div class="day"><h3>WEDNESDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('THURSDAY')">
+					<div class="day"><h3>THURSDAY</h3></div>
+				</div>
+				<div class="weekday hover" onclick="openSetScheduling('FRIDAY')">
+					<div class="day"><h3>FRIDAY</h3></div>
+				</div>
+			</div>
+			
+			<div class="teachers-scheduling">
+				<div class="teacher">
+					<figure id="profile-pic">
+						<img src="logos/Profile.png" alt="Profile Picture">
+					</figure>
+					<div class="sched-border">
+						<label class="sched-label">Teacher B</label>
+						<div class="info-card">
+						  Time: 8:00AM - 9:00AM<br>
+						  Class Size: 30 - 40<br>
+						  Equipment Needed: White Board<br>
+						  Subject: FORL 11
+						</div>
+					</div>
+				</div>
+				
+				<div class="teacher">
+					<figure id="profile-pic">
+						<img src="logos/Profile.png" alt="Profile Picture">
+					</figure>
+					<div class="sched-border">
+						<label class="sched-label">Teacher C</label>
+						<div class="info-card">
+						  Time: 8:00AM - 9:00AM<br>
+						  Class Size: 30 - 40<br>
+						  Equipment Needed: White Board<br>
+						  Subject: FORL 11
+						</div>
+					</div>
+				</div>
+				
+				<div class="teacher">
+					<figure id="profile-pic">
+						<img src="logos/Profile.png" alt="Profile Picture">
+					</figure>
+					<div class="sched-border">
+						<label class="sched-label">Teacher D</label>
+						<div class="info-card">
+						  Time: 8:00AM - 9:00AM<br>
+						  Class Size: 30 - 40<br>
+						  Equipment Needed: White Board<br>
+						  Subject: FORL 11
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ROOMS -->
+	<div id="main">
+		<header class="in-page">
+			<h1>List of Classrooms</h1>
+			<h2>First Floor</h2>
+		</header>
+		<section id="1st-floor" class="container">
+			<div class="room-box">
+				<figure class="header-img">
+				<figcaption><h3>Room 103</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" id="unavailable" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 40</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Unavailable</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 104')">
+				<figure class="header-img room-img">
+				<figcaption><h3>Room 104</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 105')">
+				<figure class="header-img">
+				<figcaption><h3>Room 105</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 106')">
+				<figure class="header-img">
+				<figcaption><h3>Room 106</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 107')">
+				<figure class="header-img">
+				<figcaption><h3>Room 107</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<header class="in-page">
+			<h2>Second Floor</h2>
+		</header>
+		<section id="2nd-floor" class="container">
+		
+			<div class="room-box" onclick="openScheduling('Room 201')">
+				<figure class="header-img">
+				<figcaption><h3>Room 201</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 203')">
+				<figure class="header-img room-img">
+				<figcaption><h3>Room 203</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 204')">
+				<figure class="header-img">
+				<figcaption><h3>Room 204</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 205')">
+				<figure class="header-img">
+				<figcaption><h3>Room 205</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 206')">
+				<figure class="header-img">
+				<figcaption><h3>Room 206</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<header class="in-page">
+			<h2>Third Floor</h2>
+		</header>
+		<section id="3rd-floor" class="container">
+		
+			<div class="room-box" onclick="openScheduling('Room 302')">
+				<figure class="header-img">
+				<figcaption><h3>Room 302</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 303')">
+				<figure class="header-img room-img">
+				<figcaption><h3>Room 303</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 304')">
+				<figure class="header-img">
+				<figcaption><h3>Room 304</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 305')">
+				<figure class="header-img">
+				<figcaption><h3>Room 305</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="room-box" onclick="openScheduling('Room 306')">
+				<figure class="header-img">
+				<figcaption><h3>Room 306</h3></figcaption>
+				<img src="logos/pexels-pixabay-159213.jpg" class="room-img">
+				</figure>
+				<div class="desc">
+					<ul>
+					<li>Classroom Size: 60</li>
+					<li>Equipment: Computer, Whiteboard</li>
+					<li>Available</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+	</div>
+</body>
+</main>
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+function openSort() {
+  document.getElementById("sort-filter-box").style.width = "250px";
+  document.getElementById("sort-filter-box").style.display="block";
+   document.getElementById("overlay").style.top = "13.1vh";
+  document.getElementById("overlay").style.display="block";
+}
+
+function closeSort() {
+  document.getElementById("sort-filter-box").style.width = "0";
+  document.getElementById("sort-filter-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+}
+
+function openScheduling(newText) {
+   
+  document.getElementById("scheduling-box").style.display="block";
+  document.getElementById("overlay").style.top = "0";
+  document.getElementById("overlay").style.display="block";
+  document.getElementById("scheduling-header").innerText = newText;
+}
+
+function closeScheduling(newText) {
+  document.getElementById("scheduling-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+  document.getElementById("scheduling-header").innerText = "";
+}
+
+function openSchedDesc() {
+  document.getElementById("sched-week").style.display="none";
+  document.getElementById("info-btn").style.display="none";  
+  document.getElementById("info-btn-close").style.display="block";  
+  document.getElementById("sched-class-desc").style.display="block";
+}
+
+function closeSchedDesc() {
+  document.getElementById("sched-class-desc").style.display="none";
+  document.getElementById("sched-week").style.display="block";
+  document.getElementById("info-btn").style.display="block";  
+  document.getElementById("info-btn-close").style.display="none";
+document.getElementById("set-sched").style.display="none";  
+}
+
+function openSetScheduling(newText) {
+  document.getElementById("sched-week").style.display="none";
+  document.getElementById("set-sched").style.display="block";
+  document.getElementById("set-sched-header").innerText = newText;
+  document.getElementById("info-btn").style.display="none";  
+  document.getElementById("info-btn-close").style.display="block";  
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+
+</html>

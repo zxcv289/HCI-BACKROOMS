@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Account info - Backrooms</title>
+    <link rel="stylesheet" href="styles/ai.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <div class="header">
+		<div class="header-left">
+			<img src="logos/BSU Logo.png" alt="BSU Logo">
+			<img src="logos/BACKROOMS Logo.png" alt="BR.Logo">
+			<h1>BACKROOMS</h1>
+		</div>
+		<div class="header-right">
+			<a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a>
+		</div>
+    </div>
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>ACCOUNT INFO</h5></span>
+	</div>
+	
+	
+	<!-- SIDE-NAV -->
+	<div id="side-nav">
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html">HOME</a></li>
+			<li>
+				<a href="schedule.html" class="dropdown-btn">SCHEDULE</a>
+				<div class="dropdown-container" id="dropdown-container">
+					<a class="tabs" href="#1st-floor">First Floor</a>
+					<a class="tabs" href="#2nd-floor">Second Floor</a>
+					<a class="tabs" href="#3rd-floor">Third Floor</a>
+				</div>
+			</li>
+			<li>
+				<a href="Manage Request.html" class="dropdown-btn">MANAGE REQUESTS</a>
+				<div class="dropdown-container" id="dropdown-container">
+					<a class="tabs" href="#all">All</a>
+					<a class="tabs" href="#pending">Pending</a>
+					<a class="tabs" href="#rejected">Rejected</a>
+					<a class="tabs" href="#approved">Approved</a>
+				</div>
+			</li>
+		 <li><a href="manage_accs.html">MANAGE ACCOUNTS</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+	
+ <main id="main">
+    <div class="account-section">
+		<div class="account-info">
+			<h2 style="text-align: center;">ACCOUNT INFO</h2>
+
+			<div class="info-row profile-picture">
+				<label>Profile Picture</label>
+				<img src="logos/Profile.png" alt="Profile Upload">
+				<div><button>Upload Image</button></div>
+			</div>
+
+	  
+			<div class="info-row">
+				<label for="name">Name</label>
+				<input type="text" id="name" value="Admin">
+			</div>
+	  
+			<div class="info-row">
+				<label for="email">Email Address</label>
+				<input type="email" id="email" value="admin1@email.com">
+			</div>
+	  
+			<div class="buttons">
+				<form action="" method="post">
+					<button type="submit">Edit</button>
+				</form>
+				<form action="" method="post">
+					<button type="Apply">Apply</button>
+				</form>
+			</div>
+		</div>
+    </div>
+  </main>
+  </body>
+  <script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+  </html>

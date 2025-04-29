@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MANAGE REQUESTS</title>
+    <meta charset="UTF-8">
+    <title> Account info - Backrooms</title>
+    <link rel="stylesheet" href="styles/mng_req.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+
+
+<main>
+	<!-- HEADER -->
+	<header class="main-header">
+		<figure class="logo">
+			<img alt="BSU-Logo" id="BSU-Logo" src="logos/BSU Logo.png">
+			<img alt="BACKROOMS-Logo" id="BACKROOMS-Logo" src="logos/BACKROOMS Logo.png">
+			<h1>BACKROOMS</h1>
+		</figure>
+		<figure id="profile-pic"><a href="Account Info - Backrooms.html"><img src="logos/account.png" alt="Profile Picture"></a></figure>
+	</header>
+	
+	
+	<!-- SUBHEADER -->
+	<div class="subheader">
+		<span class="material-icons label" onclick="openNav()">menu <h5>MANAGE REQUESTS</h5></span>
+		<div id="subheader-R">
+			<form id="search">
+				<button id="search-icon"><span class="material-icons label">search</span></button>
+				<input type="text" id="search-bar" placeholder="Search..." oninput="filterContent()">
+			</form>
+			<span id="sort-icon" class="material-icons label" onclick="openSort()">sort</span>
+		</div>
+	</div>
+	
+	
+<body>
+	<!-- OVERLAY -->
+	<div id="overlay"></div>
+	
+	
+	<!-- SIDE-NAV -->
+	<div id="side-nav" >
+		<div id="top-border"></div>
+		<span id="close-btn" class="material-icons" onclick="closeNav()">close</span>
+		<ul>
+			<li><a href="home.html">HOME</a></li>
+			<li>
+				<a href="schedule.html" class="dropdown-btn">SCHEDULE</a>
+				<div class="dropdown-container" id="dropdown-container">
+					<a class="tabs" href="#1st-floor">First Floor</a>
+					<a class="tabs" href="#2nd-floor">Second Floor</a>
+					<a class="tabs" href="#3rd-floor">Third Floor</a>
+				</div>
+			</li>
+			<li>
+				<a href="Manage Request.html" class="dropdown-btn active">MANAGE REQUESTS</a>
+				<div class="on-page" id="dropdown-container">
+					<a class="tabs" href="#all">All</a>
+					<a class="tabs" href="#pending">Pending</a>
+					<a class="tabs" href="#rejected">Rejected</a>
+					<a class="tabs" href="#approved">Approved</a>
+				</div>
+			</li>
+		 <li><a href="manage_accs.html">MANAGE ACCOUNTS</a></li>
+		 <li><a href="notif.html">NOTIFICATIONS</a></li>
+		</ul>
+	</div>
+
+
+	<!-- SORT&FILTER -->
+	<div id="sort-filter-box">
+		<form action="">
+			<div id="sort-header">
+				<span id="sort-icon" class="material-icons label">sort</span>
+				<h2>Sort & Filter</h2>
+				<span id="close-btn" class="material-icons" onclick="closeSort()">close</span>
+			</div>
+
+			<div id="sort-filter-menu">
+				<h3>Sort</h3>
+				<form action="">
+					<label><input type="checkbox">A - Z</label>
+					<label><input type="checkbox">Z - A</label>
+					<label><input type="checkbox">Account Type</label>
+				</form>
+			</div>
+			
+			<div id="sort-filter-menu">
+				<h3>Filter</h3>
+				<h4>Availability</h4>
+				<form>
+					<label><input type="checkbox">Approved</label>
+					<label><input type="checkbox">Rejected</label>
+					<label><input type="checkbox">Undecided</label>
+				</form>
+			</div>
+			
+			<button type="submit">Apply</button>
+		</form>
+	</div>
+
+	<!-- ACC-TABLE -->
+	<div id="main">
+		<header class="in-page">
+		<h2>LIST OF REQUESTS</h2>
+	</header>
+	<div id="acc-table" class="overflow">
+<table>
+  <thead>
+    <tr>
+      <th>APPROVED/REJECTED</th>
+      <th>NAME</th>
+      <th>TIME</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="approved">&#10004;</span> <span class="rejected">&#10006;</span></td>
+      <td>Teacher G</td>
+      <td>1:00PM - 2:30PM</td>
+      <td>Class Size: 30 - 40<br>Subject: UTS</td>
+    </tr>
+    <tr>
+      <td><span class="approved">&#10004;</span> <span class="rejected">&#10006;</span></td>
+      <td>Teacher F</td>
+      <td>3:00PM - 5:00PM</td>
+      <td>Class Size: 30 - 40<br>Subject: FORL 11</td>
+    </tr>
+    <tr>
+      <td><span class="approved">&#10004;</span> <span class="rejected">&#10006;</span></td>
+      <td>Teacher A</td>
+      <td>8:00AM - 9:00AM</td>
+      <td>Class Size: 30 - 40<br>Equipment Needed: Internet Connection<br>Subject: FORL 11</td>
+    </tr>
+    <tr>
+      <td><span class="approved">&#10004;</span> <span class="rejected">&#10006;</span></td>
+      <td>Teacher B</td>
+      <td>8:00AM - 9:30AM</td>
+      <td>Class Size: 30 - 40<br>Subject: ENO21</td>
+    </tr>
+    <tr>
+      <td><span class="approved">&#10004;</span> <span class="rejected">&#10006;</span></td>
+      <td>Teacher C</td>
+      <td>8:00AM - 9:00AM</td>
+      <td>Class Size: 30 - 40<br>Equipment Needed: White Board<br>Subject: FORL 11</td>
+    </tr>
+    <tr>
+      <td><span class="approved">&#10004;</span> <span class="rejected">&#10006;</span></td>
+      <td>Teacher D</td>
+      <td>9:00AM - 10:00AM</td>
+      <td>Class Size: 30 - 40<br>Subject: STAT 21</td>
+    </tr>
+  </tbody>
+</table>
+		</div>
+	</div>
+		
+</main>
+</body>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+function openNav() {
+  document.getElementById("side-nav").style.width = "250px";
+  document.getElementById("main","in-page").style.marginLeft = "260px";
+  document.getElementById("side-nav").style.display="block";
+}
+
+function closeNav() {
+  document.getElementById("side-nav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("side-nav").style.display="none";
+}
+
+function openSort() {
+  document.getElementById("sort-filter-box").style.width = "250px";
+  document.getElementById("sort-filter-box").style.display="block";
+   document.getElementById("overlay").style.top = "13.1vh";
+  document.getElementById("overlay").style.display="block";
+}
+
+function closeSort() {
+  document.getElementById("sort-filter-box").style.width = "0";
+  document.getElementById("sort-filter-box").style.display="none";
+  document.getElementById("overlay").style.display="none";
+}
+
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+</html>
+
